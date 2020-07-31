@@ -50,6 +50,64 @@ var 临时变量 = 1;
 ```
 
 ### 数据类型
+#### typeof
+typeof 是运算符，不是函数
+```javascript
+typeof null  // object
+typeof a  // undefined
+typeof []  // object
+
+var a = ()=>{}
+typeof a  // function
+```
+
+**问：数组和函数都是object，为什么typeof函数返回的是function？**
+
+#### null 和 undefined
+```javascript
+null == false  // false
+undefined == false // false
+!null // true
+!undefined // true
+undefined == null // true
+Number(null)  // 0
+Number(undefined)  // NaN
+Boolean(null)  // false
+Boolean(undefined)  // false
+```
+#### boolean
+转为false的值：
+- undefined
+- null
+- false
+- 0
+- NaN
+- ""空字符串
+
+[] 和 {} 对应的布尔值是true
+
+#### 数值
+JavaScript 内部，所有数字都是以64位浮点数形式储存
+
+浮点数不精确
+```javascript
+1 === 1.0  // true
+0.1 + 0.2 === 0.3  // false
+```
+
+NaN
+```javascript
+typeof NaN  // "number"
+```
+
+Infinity 无限大
+
+函数
+- parseInt() 将字符串转为整数
+- parseFloat() 将字符串转为浮点数
+- isNaN() 判断是否NaN
+- isFinite() 判断是否为正常数值
+
 
 
 
