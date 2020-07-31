@@ -102,11 +102,62 @@ typeof NaN  // "number"
 
 Infinity 无限大
 
-函数
+相关函数
 - parseInt() 将字符串转为整数
 - parseFloat() 将字符串转为浮点数
 - isNaN() 判断是否NaN
 - isFinite() 判断是否为正常数值
+
+#### 字符串
+零个或多个字符排在一起，放在引号中
+
+将字符串分成多行的方法：
+```javascript
+// 每行后加 \
+var longString = 'Long \
+long \
+long \
+string';
+
+// 用 + 连接
+var longString = 'Long '
+  + 'long '
+  + 'long '
+  + 'string';
+```
+
+字符可被视为字符数组
+```javascript
+var a = "hello"
+a[0]  // "h"
+a.length  // 5
+```
+
+JavaScript 使用 Unicode 字符集, UTF-16，
+由于历史原因，只支持两字节的字符，不支持四字节的字符。
+
+两字节的字符长度为1，不支持四字节的字符长度为2。
+
+##### Base64转码
+Base64 就是一种编码方法，可以将任意值转成 0～9、A～Z、a-z、+和/这64个字符组成的可打印字符。
+
+```javascript
+var string = 'Hello World!';
+btoa(string) // "SGVsbG8gV29ybGQh"
+atob('SGVsbG8gV29ybGQh') // "Hello World!"
+
+// 非 ASCII 码的字符需要插入一个转码环节
+function b64Encode(str) {
+  return btoa(encodeURIComponent(str));
+}
+
+function b64Decode(str) {
+  return decodeURIComponent(atob(str));
+}
+
+b64Encode('你好') // "JUU0JUJEJUEwJUU1JUE1JUJE"
+b64Decode('JUU0JUJEJUEwJUU1JUE1JUJE') // "你好"
+```
 
 
 
